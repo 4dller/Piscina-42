@@ -1,0 +1,106 @@
+EXECUTAVEIS EXERCICIOS 
+
+
+EXERCICIO	-	0
+
+
+int main()
+{
+        int value;
+        value = 1;
+
+        ft_ft(&value);
+        printf("%d\n", value);
+
+         return 0;
+}
+
+EXERCICIO	-	1
+
+int main()
+{
+    int value = 0;
+    int *ptr1 = &value;
+    int **ptr2 = &ptr1;
+    int ***ptr3 = &ptr2;
+    int ****ptr4 = &ptr3;
+    int *****ptr5 = &ptr4;
+    int ******ptr6 = &ptr5;
+    int *******ptr7 = &ptr6;
+    int ********ptr8 = &ptr7;
+    int *********nbr = &ptr8;
+
+    ft_ultimate_ft(nbr);
+    printf("%d\n", value);
+
+    return 0;
+}
+
+EXRCICIO	-	2
+
+int main()
+{
+    int x = 5;
+    int y = 10;
+
+    printf(" x = %d, y = %d\n", x, y);
+
+    ft_swap(&x, &y);
+
+    printf(" x = %d, y = %d\n", x, y);
+
+    return 0;
+}
+
+EXERCICIO	-	3
+
+int main()
+{
+    int a = 10;
+    int b = 3;
+    int div_result, mod_result;
+
+    ft_div_mod(a, b, &div_result, &mod_result);
+
+    printf("Divisão: %d\n", div_result);
+    printf("Módulo: %d\n", mod_result);
+
+    return 0;
+}
+
+EXERCICIO       -       4
+
+int     main() {
+
+        int a = 10;
+        int b = 2;
+        ft_ultimate_mod(&a, &b);
+        printf("%d\n", a);
+        printf("%d\n", b);
+        return 0;
+}
+
+EXERCICIO	-	5
+
+int main()
+{
+    char myString[] = "Adller de Oliveira Ferreira!";
+    ft_putstr(myString);
+
+    return 0;
+}
+
+EXERCICIO	-	6
+
+int main()
+{
+    char input[] = "Adller de Oliveira Ferreira";
+    int length = ft_strlen(input);
+
+    printf("O tamanho da String é: %d\n", length);
+
+    return 0;
+}
+
+
+

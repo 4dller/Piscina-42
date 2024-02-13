@@ -1,0 +1,620 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang22 Anota\'e7\'f5es da Aula 1\par
+Nesta aula, vimos sobre os seguintes t\'f3picos: \par
+C\par
+CS50 IDE\par
+Compila\'e7\'e3o\par
+Fun\'e7\'f5es e argumentos\par
+Fun\'e7\'e3o principal(main) e arquivos de cabe\'e7alho\par
+Ferramentas\par
+Comandos\par
+Tipos e C\'f3digos de Formato\par
+Operadores, limita\'e7\'f5es, truncamento\par
+Vari\'e1veis e A\'e7\'facar Sint\'e1tico(boas pr\'e1ticas)\par
+Condicionais\par
+Express\'f5es booleanas, loops\par
+Abstra\'e7\'e3o\par
+Mario\par
+Mem\'f3ria, imprecis\'e3o e overflow\par
+Quero compartilhar meu aprendizado e/ou minha d\'favida...\par
+Ir para o F\'f3rum Ir para o Discord\par
+\par
+Recomendamos que voc\'ea leia as anota\'e7\'f5es da aula, isso pode te ajudar!\par
+\par
+C\par
+Hoje vamos aprender uma nova linguagem, C : uma linguagem de programa\'e7\'e3o que tem todos os recursos do Scratch e muito mais, por\'e9m talvez um pouco menos amig\'e1vel, por ser puramente em texto:\par
+\par
+#include <stdio.h>\par
+int main(void) \par
+\{\par
+    printf("ol\'e1, mundo"); \par
+\}\par
+Embora a princ\'edpio tentar absorver todos esses novos conceitos possa parecer como beber de uma mangueira de inc\'eandio - pegando emprestado uma frase do MIT - , tenha certeza de que, no final do semestre, estaremos capacitados e experientes em aprender e aplicar esses conceitos.\par
+\par
+Podemos comparar muitos dos recursos de programa\'e7\'e3o em C aos blocos que j\'e1 vimos e usamos no Scratch. Os detalhes da sintaxe s\'e3o muito menos importantes do que as ideias, \'e0s quais j\'e1 fomos apresentados.\par
+\par
+Em nosso exemplo, embora as palavras sejam novas, as ideias s\'e3o exatamente as mesmas que os blocos "quando a bandeira verde for clicada" e "diga (ol\'e1, mundo)" no Scratch:\par
+\par
+when green flag clicked\par
+say Ol\'e1 Mundo!\par
+Ao escrever o c\'f3digo, podemos considerar as seguintes qualidades:\par
+\par
+Corre\'e7\'e3o, ou se nosso c\'f3digo funciona corretamente, conforme planejado.\par
+Design, ou uma medida subjetiva de qu\'e3o bem escrito nosso c\'f3digo \'e9, com base em qu\'e3o eficiente, elegante ou logicamente leg\'edvel ele \'e9, sem repeti\'e7\'e3o desnecess\'e1ria.\par
+Estilo, ou o qu\'e3o esteticamente formatado nosso c\'f3digo \'e9, em termos de indenta\'e7\'e3o consistente e outra coloca\'e7\'e3o de s\'edmbolos. As diferen\'e7as de estilo n\'e3o afetam a exatid\'e3o ou o significado do nosso c\'f3digo, mas afetam o qu\'e3o leg\'edvel \'e9 visualmente.\par
+ \par
+\par
+CS50 IDE\par
+Para come\'e7ar a escrever nosso c\'f3digo rapidamente, usaremos uma ferramenta para o curso, o CS50 IDE , um ambiente de desenvolvimento integrado que inclui programas e recursos para escrever c\'f3digo. CS50 IDE \'e9 constru\'eddo sobre um IDE baseado em nuvem muito popular, usado por programadores gerais, mas com recursos educacionais adicionais e personaliza\'e7\'e3o.\par
+\par
+Abriremos o IDE e, ap\'f3s o login, veremos uma tela como esta:\par
+\par
+IDE do CC50\par
+\par
+O painel superior, em branco, conter\'e1 arquivos de texto nos quais podemos escrever nosso c\'f3digo.\par
+O painel inferior, uma janela de terminal, nos permitir\'e1 digitar v\'e1rios comandos e execut\'e1-los, incluindo programas do nosso c\'f3digo acima.\par
+Nosso IDE \'e9 executado na nuvem e vem com um conjunto padr\'e3o de ferramentas, mas saiba que tamb\'e9m existem muitos IDEs baseados em desktop, oferecendo mais personaliza\'e7\'e3o e controle para diferentes prop\'f3sitos de programa\'e7\'e3o, ao custo de maior tempo e esfor\'e7o para configur\'e1-los.\par
+\par
+No IDE, iremos para Arquivo> Novo arquivo e, em seguida, Arquivo> Salvar para salvar nosso arquivo como hello.c , indicando que nosso arquivo ser\'e1 um c\'f3digo escrito em C. Veremos que o nome de nossa guia de fato mudou para hello.c , e agora vamos colar o c\'f3digo que vimos acima:\par
+\par
+#include <stdio.h>\par
+int main(void)\par
+\{\par
+    printf("ol\'e1, mundo"); \par
+\}\par
+Para executar nosso programa, usaremos uma CLI, ou interface de linha de comando , um prompt (um \ldblquote gatilho\rdblquote , por assim dizer) ao qual respondemos inserindo comandos de texto. Isso contrasta com a interface gr\'e1fica do usu\'e1rio, ou GUI, como o Scratch, onde temos imagens, \'edcones e bot\'f5es al\'e9m do texto.\par
+\par
+ \par
+\par
+Compila\'e7\'e3o\par
+No terminal no painel inferior de nosso IDE, iremos compilar nosso c\'f3digo antes de podermos execut\'e1-lo. Os computadores s\'f3 entendem bin\'e1rio, que tamb\'e9m \'e9 usado para representar instru\'e7\'f5es como imprimir algo na tela. Nosso c\'f3digo-fonte foi escrito em caracteres que podemos ler, mas precisa ser compilado: convertido em c\'f3digo de m\'e1quina, padr\'f5es de zeros e uns que nosso computador possa entender diretamente.\par
+\par
+Um programa chamado compilador pegar\'e1 o c\'f3digo-fonte como entrada e produzir\'e1 o c\'f3digo de m\'e1quina como sa\'edda. No IDE CS50, j\'e1 temos acesso a um compilador, por meio de um comando chamado make . Em nosso terminal, digitaremos make hello, que encontrar\'e1 automaticamente nosso arquivo hello.c com nosso c\'f3digo-fonte e o compilar\'e1 em um programa chamado hello. Haver\'e1 alguma sa\'edda, mas nenhuma mensagem de erro em amarelo ou vermelho, ent\'e3o nosso programa foi compilado com sucesso.\par
+\par
+Para executar nosso programa, digitaremos outro comando, ./hello, que procura na pasta atual , . , para um programa chamado hello e o executa.\par
+\par
+ \par
+\par
+Fun\'e7\'f5es e argumentos\par
+Usaremos as mesmas ideias que exploramos no Scratch.\par
+\par
+Fun\'e7\'f5es s\'e3o pequenas a\'e7\'f5es ou verbos que podemos usar em nosso programa para fazer algo, e as entradas para fun\'e7\'f5es s\'e3o chamadas de argumentos.\par
+\par
+Por exemplo, o bloco \ldblquote say\rdblquote  (\ldblquote dizer\rdblquote ) no Scratch pode ter considerado algo como \ldblquote ol\'e1, mundo\rdblquote  como um argumento. Em C, a fun\'e7\'e3o de imprimir algo na tela \'e9 chamada de printf(com f significando texto \ldblquote formatado\rdblquote , que veremos em breve). E em C, passamos os argumentos entre par\'eanteses, como em printf ("hello, world"); . As aspas duplas indicam que queremos imprimir as letras hello, world literalmente, e o ponto-e-v\'edrgula no final indica o fim de nossa linha de c\'f3digo.\par
+As fun\'e7\'f5es tamb\'e9m podem ter dois tipos de sa\'eddas:\par
+\par
+efeitos colaterais, como algo impresso na tela,\par
+e valores de retorno, um valor que \'e9 passado de volta ao nosso programa que podemos usar ou armazenar para mais tarde.\par
+O bloco \ldblquote ask\rdblquote  (\ldblquote perguntar\rdblquote ) no Scratch, por exemplo, criou um bloco \ldblquote answer\rdblquote  (\ldblquote responder\rdblquote ).\par
+Para obter a mesma funcionalidade do bloco \ldblquote ask\rdblquote , usaremos uma biblioteca ou um conjunto de c\'f3digo j\'e1 escrito. A Biblioteca CS50 incluir\'e1 algumas fun\'e7\'f5es b\'e1sicas e simples que podemos usar imediatamente. Por exemplo, get_string pedir\'e1 ao usu\'e1rio uma string, ou alguma sequ\'eancia de texto, e a retornar\'e1 ao nosso programa. get_string recebe algum input e o usa como prompt para o usu\'e1rio, como \ldblquote Qual \'e9 o seu nome?\rdblquote , e n\'f3s teremos que salv\'e1-lo em uma vari\'e1vel com:\par
+\par
+string answer = get_string("Qual \'e9 o seu nome?");\par
+Em C, o \ldblquote =\rdblquote  indica atribui\'e7\'e3o ou configura\'e7\'e3o do valor \'e0 direita para a vari\'e1vel \'e0 esquerda. E o programa chamar\'e1 a fun\'e7\'e3o get_string primeiro para ent\'e3o obter seu output.\par
+E tamb\'e9m precisamos indicar que nossa vari\'e1vel chamada answer \'e9 do tipo string, ent\'e3o nosso programa saber\'e1 interpretar os zeros e uns como texto.\par
+Finalmente, precisamos nos lembrar de adicionar um ponto-e-v\'edrgula para encerrar nossa linha de c\'f3digo.\par
+No Scratch, tamb\'e9m usamos o bloco \ldblquote answer\rdblquote  dentro de nossos blocos \ldblquote join\rdblquote  (\ldblquote juntar\rdblquote ) e \ldblquote say\rdblquote . Em C, faremos isso:\par
+\par
+printf("ol\'e1,% s", resposta);\par
+O %s \'e9 chamado de c\'f3digo de formata\'e7\'e3o, o que significa apenas que queremos que a fun\'e7\'e3o printf substitua uma vari\'e1vel onde est\'e1 o marcador %s. E a vari\'e1vel que queremos usar \'e9 answer, que passamos para printf como outro argumento, separado do primeiro por uma v\'edrgula. (printf ("hello, answer")) iria literalmente imprimir hello, answer sempre.)\par
+De volta ao IDE CS50, n\'f3s implementaremos o que descobrimos:\par
+\par
+#include <cs50.h>\par
+#include <stdio.h>\par
+int main(void)\par
+\{\par
+     string answer = get_string("Qual \'e9 o seu nome?");\par
+     printf("ol\'e1, %s", resposta);\par
+\}\par
+Precisamos dizer ao compilador para incluir a Biblioteca CS50, com #include <cs50.h>, para que possamos usar a fun\'e7\'e3o get_string.\par
+Tamb\'e9m temos a oportunidade de escrever o c\'f3digo usando um \ldblquote estilo\rdblquote  que favoreca intuitividade, j\'e1 que poder\'edamos nomear nossa vari\'e1vel de resposta com qualquer coisa, mas um nome mais descritivo nos ajudar\'e1 a entender sua finalidade melhor do que um nome mais curto como a ou x.\par
+Depois de salvar o arquivo, precisaremos recompilar nosso programa com make hello, j\'e1 que alteramos apenas o c\'f3digo-fonte, mas n\'e3o o c\'f3digo de m\'e1quina compilado. Outras linguagens ou IDEs podem n\'e3o exigir que recompilemos manualmente nosso c\'f3digo depois de alter\'e1-lo, mas aqui temos a oportunidade de ter mais controle e compreens\'e3o do que est\'e1 acontecendo nos bastidores.\par
+\par
+Agora, ./hello executar\'e1 nosso programa e solicitar\'e1 nosso nome conforme pretendido. Podemos notar que o pr\'f3ximo prompt \'e9 impresso imediatamente ap\'f3s a sa\'edda de nosso programa, como em hello, Brian ~ / $ . Podemos adicionar uma nova linha ap\'f3s a sa\'edda de nosso programa, de modo que o pr\'f3ximo prompt esteja em sua pr\'f3pria linha, com \\n:\par
+\par
+printf("ol\'e1, %s\\n" ,resposta);\par
+\\n \'e9 um exemplo de sequ\'eancia de escape ou algum texto que na verdade representa algum outro texto.\par
+\par
+ \par
+\par
+Fun\'e7\'e3o principal(main) e arquivos de cabe\'e7alho\par
+O bloco \ldblquote quando a bandeira verde for clicada\rdblquote  no Scratch inicia o que consideramos ser o programa principal. Em C, a primeira linha para o mesmo \'e9 int main (void), sobre a qual aprenderemos mais nas pr\'f3ximas semanas, seguida por uma chave aberta \{ e uma chave fechada \} , envolvendo tudo o que deveria estar em nosso programa.\par
+\par
+int main(void)\par
+\{ \par
+\par
+\par
+\}\par
+Aprenderemos mais sobre como podemos modificar essa linha nas pr\'f3ximas semanas, mas, por enquanto, simplesmente usaremos isso para iniciar nosso programa.\par
+Arquivos de cabe\'e7alho que terminam com .h referem-se a algum outro conjunto de c\'f3digo, como uma biblioteca, que podemos usar em nosso programa. N\'f3s os inclu\'edmos com linhas como #include <stdio.h> , por exemplo, para a biblioteca de entrada / sa\'edda padr\'e3o, que cont\'e9m a fun\'e7\'e3o printf.\par
+\par
+ \par
+\par
+Ferramentas\par
+Com toda a nova sintaxe, \'e9 f\'e1cil cometer erros ou esquecer algo. Temos algumas ferramentas criadas pela equipe para nos ajudar.\par
+\par
+Podemos esquecer de incluir uma linha de c\'f3digo e, quando tentamos compilar nosso programa, vemos muitas linhas de mensagens de erro que s\'e3o dif\'edceis de entender, pois o compilador pode ter sido projetado para um p\'fablico mais t\'e9cnico. help50 \'e9 um comando que podemos executar para explicar problemas em nosso c\'f3digo de uma forma mais amig\'e1vel. Podemos execut\'e1-lo adicionando help50 \'e0 frente de um comando que estamos tentando, como help50 make hello , para obter conselhos que possam ser mais compreens\'edveis.\par
+\par
+Acontece que, em C, novas linhas e indenta\'e7\'e3o geralmente n\'e3o afetam a forma como nosso c\'f3digo \'e9 executado. Por exemplo, podemos alterar nossa fun\'e7\'e3o principal(main) para uma linha, int main (void) \{printf ("hello, world");\}, mas \'e9 muito mais dif\'edcil de ler, ent\'e3o consideramos que tem um estilo ruim. Podemos executar style50 , como style50 hello.c, com o nome do arquivo de nosso c\'f3digo-fonte, para ver sugest\'f5es de novas linhas e recuo.\par
+\par
+Al\'e9m disso, podemos adicionar coment\'e1rios , notas em nosso c\'f3digo-fonte para n\'f3s mesmos ou para outras pessoas que n\'e3o afetem a forma como nosso c\'f3digo \'e9 executado. Por exemplo, podemos adicionar uma linha como // Cumprimentar o usu\'e1rio, com duas barras // para indicar que a linha \'e9 um coment\'e1rio e, em seguida, escrever o prop\'f3sito do nosso c\'f3digo ou programa para nos ajudar a lembrar mais tarde.\par
+\par
+check50 ir\'e1 verificar a exatid\'e3o do nosso c\'f3digo com alguns testes automatizados. A equipe escreve testes especificamente para alguns dos programas que escreveremos no curso, e as instru\'e7\'f5es para usar o check50 ser\'e3o inclu\'eddas em cada conjunto de problemas ou laborat\'f3rio, conforme necess\'e1rio. Depois de executar check50, veremos algum output nos informando se nosso c\'f3digo passou nos testes relevantes.\par
+\par
+O IDE CS50 tamb\'e9m nos d\'e1 o equivalente a nosso pr\'f3prio computador na nuvem, em algum lugar da internet, com nossos pr\'f3prios arquivos e pastas. Se clicarmos no \'edcone da pasta no canto superior esquerdo, veremos uma \'e1rvore de arquivos, uma GUI dos arquivos em nosso IDE:\par
+\par
+\'c1rvore de arquivos do IDE CS50\par
+\par
+Para abrir um arquivo, podemos apenas clicar duas vezes nele. hello.c \'e9 o c\'f3digo-fonte que acabamos de escrever, e hello em si ter\'e1 muitos pontos vermelhos, cada um dos quais s\'e3o caracteres n\'e3o imprim\'edveis, pois representam instru\'e7\'f5es bin\'e1rias para nossos computadores.\par
+ \par
+\par
+Comandos\par
+Como o IDE CS50 \'e9 um computador virtual na nuvem, tamb\'e9m podemos executar comandos dispon\'edveis no Linux, um sistema operacional como o macOS ou Windows.\par
+\par
+No terminal, podemos digitar ls, abrevia\'e7\'e3o de list, para ver uma lista de arquivos e pastas na pasta atual:\par
+\par
+~ / $ ls\par
+ola* ola.c\par
+ola est\'e1 em verde com um asterisco para indicar que podemos execut\'e1-lo como um programa.\par
+Tamb\'e9m podemos remover arquivos com rm , com um comando como rm ola. Isso nos solicitar\'e1 uma confirma\'e7\'e3o e podemos responder com y ou n para sim ou n\'e3o.\par
+\par
+Com mv , ou move , podemos renomear arquivos. Com mv hello.c goodbye.c , renomeamos nosso arquivo ola.c com o nome goodbye.c.\par
+\par
+Com mkdir , ou diret\'f3rio make, podemos criar pastas ou diret\'f3rios. Se executarmos mkdir lecture, veremos uma pasta chamada lecture e podemos mover arquivos para diret\'f3rios com um comando como mv ola.c lecture/.\par
+\par
+Para mudar os diret\'f3rios em nosso terminal, podemos usar cd , como em cd lecture /. Nosso prompt mudar\'e1 de ~/ para ~/ lecture /, indicando que estamos no diret\'f3rio de palestras(lecture) dentro de ~ . ~ representa nosso diret\'f3rio inicial ou a pasta padr\'e3o de n\'edvel superior de nossa conta.\par
+\par
+Tamb\'e9m podemos usar .. como uma abrevia\'e7\'e3o para a \ldblquote pasta-mae\rdblquote , ou a pasta que cont\'e9m aquela na qual estamos . Dentro de ~ / lecture / , podemos executar mv ola.c .. para mov\'ea-lo de volta para ~ , j\'e1 que \'e9 a pasta-mae de lecture / . cd .. , da mesma forma, mudar\'e1 o diret\'f3rio do nosso terminal para a mae atual. Um \'fanico ponto ,. , refere-se ao diret\'f3rio atual, como em ./ola.\par
+\par
+Agora que nossa pasta lecture/ est\'e1 vazia, podemos remov\'ea-la com rmdir lecture/ tamb\'e9m.\par
+\par
+ \par
+\par
+Tipos e C\'f3digos de Formato\par
+Existem muitos tipos de dados que podemos usar para nossas vari\'e1veis, que indicam ao computador que tipo de dados eles representam:\par
+\par
+ bool , uma express\'e3o booleana verdadeira ou falsa\par
+ char , um \'fanico caractere ASCII como a ou 2\par
+ double , um valor de v\'edrgula flutuante com mais d\'edgitos do que um float\par
+ float , um valor de v\'edrgula flutuante ou n\'famero real com um valor decimal\par
+ int , inteiros at\'e9 um certo tamanho ou n\'famero de bits\par
+ long , inteiros com mais bits, para que possam contar mais do que um int\par
+ string , uma linha de caracteres\par
+E a biblioteca CS50 tem fun\'e7\'f5es correspondentes para obter entrada de v\'e1rios tipos:\par
+\par
+ get_char \par
+ get_double \par
+ get_float \par
+ get_int \par
+ get_long \par
+ get_string \par
+Para printf, tamb\'e9m, existem diferentes marcadores de posi\'e7\'e3o para cada tipo:\par
+\par
+ %c  para caracteres\par
+ %f  para flutuadores, duplos\par
+ %i  para ints\par
+ %li  para longos\par
+ %s  para strings\par
+ \par
+\par
+Operadores, limita\'e7\'f5es, truncamento\par
+Existem v\'e1rios operadores matem\'e1ticos que podemos usar tamb\'e9m:\par
+\par
+ +  para adi\'e7\'e3o\par
+ -  para subtra\'e7\'e3o\par
+ *  para multiplica\'e7\'e3o\par
+ /  para divis\'e3o\par
+ %  para calcular o resto\par
+Faremos um novo programa, additional.c:\par
+\par
+#include <cs50.h>\par
+#include <stdio.h>\par
+\par
+int main(void) \par
+\{\par
+     int x = get_int("x: ");\par
+ \par
+     int y = get_int("y: ");\par
+\par
+     printf("%i\\n", x + y); \par
+\}\par
+Vamos incluir arquivos de cabe\'e7alho para as bibliotecas que sabemos que iremos usar, e ent\'e3o vamos chamar get_int para obter inteiros do usu\'e1rio, armazenando-os em vari\'e1veis nomeadas x e y.\par
+Em seguida, em printf, imprimiremos um espa\'e7o reservado para um inteiro, %i , seguido por uma nova linha. Ja que n\'f3s queremos imprimir a soma de x e y, vamos passar em x + y para printf para substituir na string.\par
+Vamos salvar, executar make add no terminal e depois ./addition para ver nosso programa funcionando. Se digitarmos algo que n\'e3o seja um inteiro, veremos get_int nos pedindo um inteiro novamente. Se digitarmos um n\'famero muito grande, como 4000000000, get_int nos alertar\'e1 novamente. Isso ocorre porque, como em muitos sistemas de computador, um int no CS50 IDE \'e9 de 32 bits, que pode conter apenas cerca de quatro bilh\'f5es de valores diferentes. E uma vez que os inteiros podem ser positivos ou negativos, o maior valor positivo para um int s\'f3 pode ser cerca de dois bilh\'f5es, com um valor negativo mais baixo de cerca de dois bilh\'f5es negativos, para um total de cerca de quatro bilh\'f5es de valores totais.\par
+Podemos mudar nosso programa para usar o tipo long:\par
+\par
+#include <cs50.h>\par
+#include <stdio.h>\par
+\par
+int main (void) \par
+\{\par
+     long x = get_long("x: ");\par
+ \par
+     long y = get_long("y: ");\par
+\par
+     printf("%li\\n", x + y); \par
+\}\par
+Agora podemos digitar inteiros maiores e ver um resultado correto conforme o esperado.\par
+Sempre que obtivermos um erro durante a compila\'e7\'e3o, \'e9 uma boa ideia rolar para cima para ver o primeiro erro e corrigi-lo primeiro, j\'e1 que \'e0s vezes um erro no in\'edcio do programa far\'e1 com que o resto do programa seja interpretado com erros tamb\'e9m.\par
+\par
+Vejamos outro exemplo, truncation.c:\par
+\par
+#include <cs50.h>\par
+#include <stdio.h>\par
+\par
+int main (void) \par
+\{\par
+     // Pega os n\'fameros do usu\'e1rio\par
+     int x = get_int("x: ");\par
+     int y = get_int("y: ");\par
+     \par
+     // Divide x por y\par
+     float z = x / y;\par
+     printf("%li\\n", x + y); \par
+\}\par
+Vamos armazenar o resultado de x dividido por y em z , um valor de virgula flutuante ou n\'famero real, e imprimi-lo tamb\'e9m como um valor flutuante.\par
+Mas quando compilamos e executamos nosso programa, vemos z impresso como n\'fameros inteiros como 0,000000 ou 1,000000 . Acontece que, em nosso c\'f3digo, x / y \'e9 dividido como dois inteiros primeiro , portanto, o resultado fornecido pela opera\'e7\'e3o de divis\'e3o tamb\'e9m \'e9 um inteiro. O resultado \'e9 truncado , com o valor ap\'f3s a v\'edrgula perdida. Mesmo que z seja um float, o valor que estamos armazenando nele j\'e1 \'e9 um n\'famero inteiro.\par
+Para corrigir isso, vamos fazer o casting, ou seja, converter nossos n\'fameros inteiros para float antes de dividi-los:\par
+\par
+float z = (float) x / (float) y;\par
+O resultado ser\'e1 um float como esperamos e, na verdade, podemos lan\'e7ar apenas um de x ou y e obter um float tamb\'e9m.\par
+\par
+ \par
+\par
+Vari\'e1veis e A\'e7\'facar Sint\'e1tico(boas pr\'e1ticas)\par
+No Scratch, t\'ednhamos blocos como \ldblquote set [counter] to (0)\rdblquote  que definem uma vari\'e1vel para algum valor. Em C, escrever\'edamos int contador = 0; para o mesmo efeito.\par
+\par
+Podemos aumentar o valor de uma vari\'e1vel com  contador = contador + 1;  , onde olhamos primeiro para o lado direito, pegando o valor original do contador , adicionando 1 e, em seguida, armazenando-o no lado esquerdo (de volta ao contador, neste caso).\par
+\par
+C tamb\'e9m suporta a\'e7\'facar sint\'e1tico ou express\'f5es abreviadas para a mesma funcionalidade. Nesse caso, poder\'edamos dizer de maneira equivalente contador += 1; para adicionar um ao contador antes de armazen\'e1-lo novamente. Tamb\'e9m poder\'edamos escrever contador++; , e podemos aprender isso (e outros exemplos) examinando a documenta\'e7\'e3o ou outras refer\'eancias online.\par
+\par
+ \par
+\par
+Condi\'e7\'f5es\par
+Podemos traduzir condi\'e7\'f5es, ou blocos \ldblquote se\rdblquote , com:\par
+\par
+if (x < y)\par
+\{\par
+     printf (\ldblquote x \'e9 menor que y\\n\rdblquote ); \par
+\}\par
+Observe que em C, usamos \{ e \} (bem como indenta\'e7\'e3o) para indicar como as linhas de c\'f3digo devem ser aninhadas.\par
+Podemos ter condi\'e7\'f5es \ldblquote if\rdblquote  e \ldblquote else\rdblquote :\par
+\par
+if (x < y)\par
+\{\par
+     printf(\ldblquote x \'e9 menor que y\\n\rdblquote ); \par
+\}\par
+else\par
+\{\par
+    printf(\ldblquote x n\'e3o \'e9 menor que y\\n\rdblquote ); \par
+\}\par
+E at\'e9 mesmo \ldblquote sen\'e3o se(else if)\rdblquote :\par
+\par
+if (x < y)\par
+\{\par
+     printf(\ldblquote x \'e9 menor que y\\n\rdblquote ); \par
+\}\par
+else if (x > y)\par
+\{\par
+    printf(\ldblquote x \'e9 maior que y\\n\rdblquote ); \par
+\}\par
+else if (x == y)\par
+\{\par
+    printf(\ldblquote x \'e9 igual a y\\n\rdblquote ); \par
+\}\par
+Observe que, para comparar dois valores em C, usamos ==, dois sinais de igual.\par
+E, logicamente, n\'e3o precisamos de if (x == y) na condi\'e7\'e3o final, j\'e1 que esse \'e9 o \'fanico caso restante, ent\'e3o podemos apenas dizer o contr\'e1rio com else:\par
+if (x < y)\par
+\{\par
+     printf(\ldblquote x \'e9 menor que y\\n\rdblquote ); \par
+\}\par
+else if (x > y)\par
+\{\par
+    printf(\ldblquote x \'e9 maior que y\\n\rdblquote ); \par
+\}\par
+else\par
+\{\par
+    printf(\ldblquote x \'e9 igual a y\\n\rdblquote ); \par
+\}\par
+Vamos dar uma olhada em outro exemplo, conditions.c:\par
+\par
+#include <cs50.h>\par
+#include <stdio.h>\par
+\par
+int main(void)\par
+\{\par
+     // Usu\'e1rio entra com o valor de x\par
+     int x = get_int(\ldblquote x: \ldblquote );\par
+\par
+     // Usu\'e1rio entra com o valor de y\par
+     int y = get_int(\ldblquote y: \ldblquote );\par
+\par
+     // Compara x e y\par
+     if (x < y)\par
+     \{\par
+         printf(\ldblquote x \'e9 menor que y\\n\rdblquote ); \par
+     \}\par
+     else if (x > y)\par
+     \{\par
+        printf(\ldblquote x \'e9 maior que y\\n\rdblquote ); \par
+     \}\par
+     else\par
+     \{\par
+        printf(\ldblquote x \'e9 igual a y\\n\rdblquote ); \par
+     \}\par
+\}\par
+N\'f3s inclu\'edmos as condi\'e7\'f5es que acabamos de ver, juntamente com duas \ldblquote chamadas\rdblquote , ou usos, de get_int para obter x e y do usu\'e1rio.\par
+Vamos compilar e executar nosso programa para ver se ele realmente funciona conforme o planejado.\par
+Em concorda.c, podemos pedir ao usu\'e1rio para confirmar ou negar algo:\par
+\par
+#include <cs50.h>\par
+#include <stdio.h>\par
+\par
+int main(void)\par
+\{\par
+     // Solicita um caracter para o usu\'e1rio\par
+     char c = get_char("Voc\'ea concorda?");\par
+\par
+     // Verifica se concordou\par
+     if (c == \lquote S\rquote  || c == \lquote s\rquote )\par
+     \{\par
+         printf(\ldblquote Concordo.\\n\rdblquote ); \par
+     \}\par
+     else if (c == \lquote N\rquote  || c == \lquote n\rquote )\par
+     \{\par
+        printf(\ldblquote N\'e3o concordo..\\n\rdblquote ); \par
+     \}\par
+\}\par
+Com get_char, podemos obter um \'fanico caractere e, como s\'f3 temos um em nosso programa, parece razo\'e1vel cham\'e1-lo de c.\par
+Usamos duas barras verticais, || , para indicar um \ldblquote ou\rdblquote  l\'f3gico (matematico), onde qualquer uma das express\'f5es pode ser verdadeira para que a condi\'e7\'e3o seja seguida. (&&, por sua vez, indica um \ldblquote e\rdblquote  l\'f3gico, onde ambas as condi\'e7\'f5es deveriam ser verdadeiras.) E observe que usamos dois sinais de igual, == , para comparar dois valores, bem como aspas simples, \rquote , para envolver nossos valores de caracteres \'fanicos.\par
+Se nenhuma das express\'f5es for verdadeira, nada acontecer\'e1, pois nosso programa n\'e3o tem um loop.\par
+Express\'f5es booleanas, loops\par
+Podemos traduzir um bloco \ldblquote para sempre\rdblquote  no Scratch com:\par
+\par
+while (true)\par
+\{\par
+    printf (\ldblquote Oi mundo!\\n\rdblquote ); \par
+\}\par
+A palavra-chave while (enquanto) requer uma condi\'e7\'e3o, ent\'e3o usamos true como a express\'e3o booleana para garantir que nosso loop seja executado para sempre. while dir\'e1 ao computador para verificar se a express\'e3o \'e9 avaliada como true(verdadeira) e, em seguida, executar as linhas dentro das chaves. Em seguida, ele repetir\'e1 isso at\'e9 que a express\'e3o n\'e3o seja mais verdadeira. Nesse caso, true sempre ser\'e1 true, ent\'e3o nosso loop \'e9 um loop infinito ou que ser\'e1 executado para sempre.\par
+Poder\'edamos fazer algo um certo n\'famero de vezes com while:\par
+\par
+int i = 0;\par
+while (i < 50)\par
+\{\par
+    printf(\ldblquote Oi mundo!\\n\rdblquote ); \par
+    i++;\par
+\}\par
+Criamos uma vari\'e1vel,i, e a definimos como 0. Ent\'e3o, enquanto i \'e9 menor que 50, executamos algumas linhas de c\'f3digo, incluindo uma em que adicionamos 1 a i a cada passagem. Dessa forma, nosso loop acabar\'e1 eventualmente, quando i atingir um valor de 50.\par
+Nesse caso, estamos usando a vari\'e1vel i como contador, mas como ela n\'e3o tem nenhum prop\'f3sito adicional, podemos simplesmente cham\'e1-la de i.\par
+Mesmo que possamos iniciar a contagem em 1, como demonstrado abaixo, por conven\'e7\'e3o devemos come\'e7ar em 0:\par
+\par
+int i = 1;\par
+while (i <= 50)\par
+\{\par
+     printf(\ldblquote Oi mundo!\\n\rdblquote ); \par
+     i++;\par
+\}\par
+Outra solu\'e7\'e3o correta, mas possivelmente menos bem projetada, pode comecar com o contador em 50 e contar para tr\'e1s:\par
+\par
+int i = 50;\par
+while (i > 0)\par
+\{\par
+     printf(\ldblquote Oi mundo!\\n\rdblquote ); \par
+     i--;\par
+\}\par
+Nesse caso, a l\'f3gica do nosso loop \'e9 mais dif\'edcil de raciocinar sem servir a nenhum prop\'f3sito adicional e pode at\'e9 mesmo confundir os leitores.\par
+Finalmente, mais comumente, podemos usar a palavra-chave for:\par
+\par
+int i = 0;\par
+for (int i = 0; i < 50; i++)\par
+\{\par
+    printf(\ldblquote Oi mundo!\\n\rdblquote ); \par
+\}\par
+Novamente, primeiro criamos uma vari\'e1vel chamada i e a definimos como 0. Em seguida, verificamos que i < 50 toda vez que alcan\'e7amos o topo do loop, antes de executar qualquer c\'f3digo interno. Se essa express\'e3o for verdadeira, executamos o c\'f3digo interno. Finalmente, depois de executar o c\'f3digo interno, usamos i++ para adicionar um a i , e o loop se repete.\par
+O loop do tipo for \'e9 mais elegante do que o loop do tipo while nesse caso, uma vez que tudo relacionado ao loop est\'e1 na mesma linha, e somente o c\'f3digo que realmente desejamos executar multiplas vezes est\'e1 dentro do loop.\par
+Observe que para muitas dessas linhas de c\'f3digo, como condi\'e7\'f5es do tipo if e loops do tipo for, n\'e3o colocamos um ponto e v\'edrgula no final. \'c9 assim que a linguagem C foi projetada, muitos anos atr\'e1s, e uma regra geral \'e9 que apenas as linhas para a\'e7\'f5es ou verbos t\'eam ponto e v\'edrgula no final.\par
+\par
+ \par
+\par
+Abstra\'e7\'e3o\par
+Podemos escrever um programa que imprime miau(meow) tr\'eas vezes:\par
+\par
+#include <stdio.h>\par
+\par
+int main(void)\par
+\{\par
+     printf(\ldblquote miau.\\n\rdblquote ); \par
+     printf(\ldblquote miau.\\n\rdblquote ); \par
+     printf(\ldblquote mmiau.\\n\rdblquote ); \par
+\}\par
+Poder\'edamos usar um loop for, para n\'e3o ter que copiar e colar tantas linhas:\par
+\par
+#include <stdio.h>\par
+\par
+int main(void)\par
+\{\par
+     for(int i = 0; i < 3; i++)\par
+     \{\par
+          printf(\ldblquote miau.\\n\rdblquote ); \par
+          printf(\ldblquote miau.\\n\rdblquote ); \par
+          printf(\ldblquote miau.\\n\rdblquote ); \par
+\tab  \}\par
+\}\par
+Podemos mover a linha printf para sua pr\'f3pria fun\'e7\'e3o, como nossa pr\'f3pria pe\'e7a de quebra-cabe\'e7a:\par
+\par
+#include <stdio.h>\par
+\par
+void miau(void)\par
+\{\par
+    printf(\ldblquote miau.\\n\rdblquote ); \par
+\}\par
+\par
+int main(void)\par
+\{\par
+     for(int i = 0; i < 3; i++)\par
+     \{\par
+         miau();\par
+\tab  \}\par
+\}\par
+Definimos uma fun\'e7\'e3o, miau, acima de nossa fun\'e7\'e3o principal(main).\par
+Mas, convencionalmente, nossa fun\'e7\'e3o principal(main) deve ser a primeira fun\'e7\'e3o em nosso programa, ent\'e3o precisamos de mais algumas linhas:\par
+\par
+#include <stdio.h>\par
+\par
+void miau(void);\par
+\par
+int main(void)\par
+\{\par
+     for(int i = 0; i < 3; i++)\par
+     \{\par
+          miau();\par
+\tab  \}\par
+\}\par
+\par
+void miau(void)\par
+\{\par
+      printf(\ldblquote miau.\\n\rdblquote ); \par
+\}\par
+Acontece que precisamos declarar nossa fun\'e7\'e3o miau primeiro com um prot\'f3tipo, antes de us\'e1-lo em main , e realmente defini-lo depois. O compilador l\'ea nosso c\'f3digo-fonte de cima para baixo, ent\'e3o ele precisa saber que o miau existir\'e1 posteriormente no arquivo.\par
+Podemos at\'e9 mesmo alterar nossa fun\'e7\'e3o de miau para obter alguma entrada, n e miau n vezes:\par
+\par
+#include <stdio.h>\par
+\par
+void miau(int n);\par
+\par
+int main(void)\par
+\{\par
+     miau(3);\par
+\}\par
+\par
+void miau(int n)\par
+\{\par
+     for(int i = 0; i < 3; i++)\par
+     \{\par
+          printf(\ldblquote miau.\\n\rdblquote ); \par
+\tab  \}\par
+\}\par
+O void antes da fun\'e7\'e3o miau significa que ela n\'e3o retorna um valor e, da mesma forma, no geral , n\'e3o podemos fazer nada com o resultado de miau , ent\'e3o apenas a chamamos.\par
+A abstra\'e7\'e3o aqui leva a um design melhor, j\'e1 que agora temos a flexibilidade de reutilizar nossa fun\'e7\'e3o miau em v\'e1rios lugares no futuro.\par
+\par
+Vejamos outro exemplo de abstra\'e7\'e3o, get_positive_int.c:\par
+\par
+#include <cs50.h>\par
+#include <stdio.h>\par
+\par
+int get_positive_int(void);\par
+\par
+int main(void)\par
+\{\par
+     int i = get_positive_int();\par
+     printf(\ldblquote %i\\n\rdblquote );\par
+\}\par
+\par
+// Solicita um n\'famero inteiro positivo ao usu\'e1rio\par
+int get_positive_int(void)\par
+\{\par
+     int n;\par
+     do\par
+     \{\par
+          n = get_int(\ldblquote N\'famero positivo: \\n\rdblquote ); \par
+\tab  \}\par
+     while(n < 1);\par
+     return n;\par
+\}\par
+Temos nossa pr\'f3pria fun\'e7\'e3o que chama get_int repetidamente at\'e9 que tenhamos algum n\'famero inteiro que n\'e3o seja menor que 1. Com um loop do-while, nosso programa far\'e1 algo primeiro, depois verificar\'e1 alguma condi\'e7\'e3o e repetir\'e1 enquanto a condi\'e7\'e3o for verdadeira. Um loop while, por outro lado, verificar\'e1 a condi\'e7\'e3o primeiro.\par
+Precisamos declarar nosso inteiro n fora do loop do-while, pois precisamos us\'e1-lo ap\'f3s o t\'e9rmino do loop. O escopo de uma vari\'e1vel em C se refere ao contexto, ou linhas de c\'f3digo, dentro do qual ela existe. Em muitos casos, ser\'e3o as chaves ao redor da vari\'e1vel.\par
+Observe que a fun\'e7\'e3o get_positive_int agora come\'e7a com int, indicando que ela tem um valor de retorno do tipo int e, em principal, n\'f3s o armazenamos em i ap\'f3s chamar get_positive_int(). Em get_positive_int, temos uma nova palavra-chave, return , para retornar o valor n para onde quer que a fun\'e7\'e3o foi chamada.\par
+ \par
+\par
+Mario\par
+Podemos querer um programa que imprima parte de uma tela de um videogame como Super Mario Bros. Em mario.c, podemos imprimir quatro pontos de interroga\'e7\'e3o, simulando blocos:\par
+\par
+#include <stdio.h>\par
+\par
+int main(void)\par
+\{\par
+     printf(\ldblquote ?????\\n\rdblquote ); \par
+\}\par
+Com um loop, podemos imprimir v\'e1rios pontos de interroga\'e7\'e3o, seguindo-os com uma \'fanica nova linha ap\'f3s o loop:\par
+\par
+#include <stdio.h>\par
+\par
+int main(void)\par
+\{\par
+     for(int i = 0; i < 3; i++)\par
+     \{  \par
+           printf(\ldblquote ?\rdblquote ); \par
+     \}\par
+     printf (\ldblquote\\n\rdblquote ); \par
+\}\par
+Podemos obter um n\'famero inteiro positivo do usu\'e1rio e imprimir esse n\'famero de pontos de interroga\'e7\'e3o, usando n para o nosso loop:\par
+\par
+ \par
+\par
+#include <cs50.h>\par
+#include <stdio.h>\par
+\par
+int main(void)\par
+\{\par
+     //  Pega o valor de n com o usu\'e1rio\par
+    int n;\par
+    do\par
+    \{\par
+          n = get_int(\ldblquote Largura: \ldblquote );\par
+    \}\par
+    while (n < 1);\par
+\par
+    // Imprima pontos de interroga\'e7\'e3o \par
+    for(int i = 0; i < n; i++)\par
+    \{\par
+         printf(\ldblquote ?\rdblquote ); \par
+    \}\par
+    printf(\ldblquote\\n\rdblquote ); \par
+\}\par
+E podemos imprimir um conjunto bidimensional de blocos com loops aninhados, um dentro do outro:\par
+\par
+#include <cs50.h>\par
+#include <stdio.h>\par
+\par
+int main(void)\par
+\{\par
+    for(int i = 0; i < 3; i++)\par
+    \{\par
+\tab     for(int j = 0; j < 3; j++)\par
+    \tab\{\par
+         \tab\tab printf(\ldblquote #\rdblquote ); \par
+    \tab\}\par
+    \tab printf(\ldblquote\\n\rdblquote ); \par
+    \}\par
+\}\par
+Temos dois loops aninhados, onde o loop externo usa i para fazer tudo que contem 3 vezes, e o loop interno usa j , uma vari\'e1vel diferente, para fazer algo 3 vezes para cada um desses tempos. Em outras palavras, o loop externo imprime 3 linhas, terminando cada uma delas com uma nova linha, e o loop interno imprime 3 colunas, ou caracteres tipo #, sem uma nova linha.\par
+ \par
+\par
+Mem\'f3ria, imprecis\'e3o e estouro\par
+Nosso computador tem mem\'f3ria, em chips de hardware chamados RAM, mem\'f3ria de acesso aleat\'f3rio. Nossos programas usam essa RAM para armazenar dados enquanto est\'e3o em execu\'e7\'e3o, mas essa mem\'f3ria \'e9 finita.\par
+\par
+Com imprecision.c , podemos ver o que acontece quando usamos valores flutuantes:\par
+\par
+#include <cs50.h>\par
+#include <stdio.h>\par
+\par
+int main(void)\par
+\{\par
+    float x = get_float("x: ");\par
+    float y = get_float("y: ");\par
+    \tab\par
+    printf(\ldblquote %.50f\\n", x / y;); \par
+\}\par
+Com % .50f , podemos especificar o n\'famero de casas decimais exibidas.\par
+Hmm, agora n\'f3s temos ...\par
+x: 1\par
+y: 10\par
+0,10000000149011611938476562500000000000000000000000\par
+Acontece que isso \'e9 chamado de imprecis\'e3o de v\'edrgula flutuante, em que n\'e3o temos bits suficientes para armazenar todos os valores poss\'edveis. Com um n\'famero finito de bits para um float , n\'e3o podemos representar todos os n\'fameros reais poss\'edveis (dos quais existe um n\'famero infinito de), ent\'e3o o computador tem que armazenar o valor mais pr\'f3ximo que puder. E isso pode levar a problemas em que mesmo pequenas diferen\'e7as no valor se somam, a menos que o programador use alguma outra maneira para representar os valores decimais com a precis\'e3o necess\'e1ria.\par
+Na semana passada, quando t\'ednhamos tr\'eas bits e precis\'e1vamos contar mais do que sete (ou 111), adicionamos outro bit para obter oito, 1000 . Mas se tiv\'e9ssemos apenas tr\'eas bits dispon\'edveis, n\'e3o ter\'edamos lugar para o 1 extra . Ele desapareceria e estar\'edamos de volta a 000. Esse problema \'e9 chamado de overflow (\ldblquote vazamento\rdblquote ) de inteiro, pois um inteiro s\'f3 pode atingir um tamanho especifico antes de ficar sem bits.\par
+\par
+O problema Y2K surgiu porque muitos programas armazenavam o ano civil com apenas dois d\'edgitos, como 98 para 1998 e 99 para 1999. Mas quando o ano 2000 se aproximou, os programas tiveram que armazenar apenas 00, levando a confus\'e3o entre os anos 1900 e 2000 .\par
+\par
+Em 2038, tamb\'e9m ficaremos sem bits para rastrear o tempo, j\'e1 que h\'e1 muitos anos alguns humanos decidiram usar 32 bits como o n\'famero padr\'e3o de bits para contar o n\'famero de segundos desde 1\'ba de janeiro de 1970. Mas com 32 bits representando apenas n\'fameros positivos, s\'f3 podemos contar at\'e9 cerca de quatro bilh\'f5es e, em 2038, atingiremos esse limite, a menos que atualizemos o software em todos os nossos sistemas de computador.\par
+}
+ 
